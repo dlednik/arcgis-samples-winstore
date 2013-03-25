@@ -1,0 +1,15 @@
+﻿<Page
+    x:Class="InteractiveSDK.Samples.Maps.FeatureLayers"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:esri="using:ESRI.ArcGIS.Runtime.Xaml">
+
+    <Grid>
+		<esri:Map>
+            <esri:ArcGISTiledMapServiceLayer ServiceUri="http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer" />
+			<esri:FeatureLayer ServiceUri="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Fire/Sheep/FeatureServer/2" />
+			<esri:FeatureLayer ServiceUri="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Fire/Sheep/FeatureServer/1" />
+			<esri:FeatureLayer ServiceUri="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Fire/Sheep/FeatureServer/0" />
+		</esri:Map>
+	</Grid>
+</Page>

@@ -1,0 +1,12 @@
+﻿<Page x:Class="InteractiveSDK.Samples.Maps.WmsLayerSimple"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:esri="using:ESRI.ArcGIS.Runtime.Xaml">
+
+    <Grid>
+        <esri:Map x:Name="MyMap">
+            <esri:ArcGISTiledMapServiceLayer ServiceUri="http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer" />
+            <esri:WmsLayer ID="WMSLayer" Opacity="0.7" ServiceUri="http://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi" />
+        </esri:Map>
+    </Grid>
+</Page>

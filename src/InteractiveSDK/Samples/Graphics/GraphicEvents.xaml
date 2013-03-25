@@ -1,0 +1,46 @@
+﻿<Page
+    x:Class="InteractiveSDK.Samples.Graphics.GraphicEvents"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:esri="using:ESRI.ArcGIS.Runtime.Xaml">
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+		<esri:Map>
+			<esri:ArcGISTiledMapServiceLayer ServiceUri="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer" />
+			<esri:FeatureLayer ServiceUri="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Fire/Sheep/FeatureServer/2" 
+							   DisplayName="Fire Perimeter"
+							   PointerMoved="FeatureLayer_PointerMoved"
+							   PointerEntered="FeatureLayer_PointerEntered" 
+							   PointerExited="FeatureLayer_PointerExited" 
+							   Tapped="FeatureLayer_Tapped" />
+			<esri:FeatureLayer ServiceUri="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Fire/Sheep/FeatureServer/1"
+							   DisplayName ="Evacuation Perimeter"
+							   PointerMoved="FeatureLayer_PointerMoved"
+							   PointerEntered="FeatureLayer_PointerEntered" 
+							   PointerExited="FeatureLayer_PointerExited" 
+							   Tapped="FeatureLayer_Tapped" />
+			<esri:FeatureLayer ServiceUri="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Fire/Sheep/FeatureServer/0"
+							   DisplayName="Points of Interest"
+							   PointerMoved="FeatureLayer_PointerMoved"
+							   PointerEntered="FeatureLayer_PointerEntered" 
+							   PointerExited="FeatureLayer_PointerExited" 
+							   Tapped="FeatureLayer_Tapped"  />
+		</esri:Map>
+
+		<Border IsHitTestVisible="False"
+				Margin="20"
+				HorizontalAlignment="Left"
+				VerticalAlignment="Top"
+				Background="#CC000000"
+				Padding="20" MaxWidth="300">
+			<StackPanel >
+				<TextBlock Text="Event:" FontWeight="Bold" />
+				<TextBlock x:Name="eventTb" />
+				<TextBlock Text="Layer:" FontWeight="Bold" />
+				<TextBlock x:Name="layerTb" />
+				<TextBlock Text="Graphic ID:" FontWeight="Bold" />
+				<TextBlock x:Name="graphicIdTb" />
+			</StackPanel>
+		</Border>
+	</Grid>
+</Page>

@@ -1,0 +1,468 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EAE83435-D259-43FF-A9CA-02629D3069D4}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>InteractiveSDK</RootNamespace>
+    <AssemblyName>InteractiveSDK</AssemblyName>
+    <DefaultLanguage>en</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>InteractiveSDK_TemporaryKey.pfx</PackageCertificateKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|ARM' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|ARM' ">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\NullToCollapsedConverter.cs" />
+    <Compile Include="DataModel\Database.cs" />
+    <Compile Include="DataModel\GroupDetailPageVM.cs" />
+    <Compile Include="DataModel\MainPageVM.cs" />
+    <Compile Include="DataModel\ViewModelLocator.cs" />
+    <Compile Include="Samples\ImageServices\ImageServiceSimple.xaml.cs">
+      <DependentUpon>ImageServiceSimple.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\Maps\CsvLayerSimple.xaml.cs">
+      <DependentUpon>CsvLayerSimple.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\Maps\LocationDisplay.xaml.cs">
+      <DependentUpon>LocationDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\Maps\OverviewMap.xaml.cs">
+      <DependentUpon>OverviewMap.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SQLite.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GroupDetailPage.xaml.cs">
+      <DependentUpon>GroupDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ItemDetailPage.xaml.cs">
+      <DependentUpon>ItemDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DataModel\SampleDataSource.cs" />
+    <Compile Include="Common\BindableBase.cs" />
+    <Compile Include="Common\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Common\BooleanNegationConverter.cs" />
+    <Compile Include="Common\LayoutAwarePage.cs" />
+    <Compile Include="Common\RichTextColumns.cs" />
+    <Compile Include="Common\SuspensionManager.cs" />
+    <Compile Include="Samples\Graphics\AddGraphicsXAML.xaml.cs">
+      <DependentUpon>AddGraphicsXAML.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\Graphics\AddPointOnTap.xaml.cs">
+      <DependentUpon>AddPointOnTap.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\Graphics\PenDrawing.xaml.cs">
+      <DependentUpon>PenDrawing.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\Graphics\GraphicEvents.xaml.cs">
+      <DependentUpon>GraphicEvents.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\Graphics\RendereringInCode.xaml.cs">
+      <DependentUpon>RendereringInCode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\ImageServices\RasterFunctions.xaml.cs">
+      <DependentUpon>RasterFunctions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\ImageServices\ShadedReliefSlope.xaml.cs">
+      <DependentUpon>ShadedReliefSlope.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\ImageServices\Stretch.xaml.cs">
+      <DependentUpon>Stretch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\DynamicLayer\DynamicLayersInCode.xaml.cs">
+      <DependentUpon>DynamicLayersInCode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\Locator\AddressOfLocation.xaml.cs">
+      <DependentUpon>AddressOfLocation.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Samples\Locator\BatchGeocoding.xaml.cs">
+      <DependentUpon>BatchGeocoding.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Samples\Locator\FindAnAddress.xaml.cs">
+      <DependentUpon>FindAnAddress.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\Maps\MapProperties.xaml.cs">
+      <DependentUpon>MapProperties.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\Maps\LargeFeatureLayers.xaml.cs">
+      <DependentUpon>LargeFeatureLayers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\Maps\WmsLayerSimple.xaml.cs">
+      <DependentUpon>WmsLayerSimple.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\Maps\EnableTouchRotation.xaml.cs">
+      <DependentUpon>EnableTouchRotation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\Maps\DynamicAndTile.xaml.cs">
+      <DependentUpon>DynamicAndTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\Maps\DynamicMap.xaml.cs">
+      <DependentUpon>DynamicMap.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\Maps\FeatureLayers.xaml.cs">
+      <DependentUpon>FeatureLayers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\Maps\TiledMap.xaml.cs">
+      <DependentUpon>TiledMap.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\Misc\LayerList.xaml.cs">
+      <DependentUpon>LayerList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\Misc\SimpleMapTip.xaml.cs">
+      <DependentUpon>SimpleMapTip.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\Misc\SymbolSwatches.xaml.cs">
+      <DependentUpon>SymbolSwatches.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\Network\DrivingDirections.xaml.cs">
+      <DependentUpon>DrivingDirections.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\Network\RoutingWithBarriers.xaml.cs">
+      <DependentUpon>RoutingWithBarriers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\Query\AttributeQuery.xaml.cs">
+      <DependentUpon>AttributeQuery.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\Query\QueryWithBuffer.xaml.cs">
+      <DependentUpon>QueryWithBuffer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\Query\Identify.xaml.cs">
+      <DependentUpon>Identify.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\Query\QueryRelatedRecords.xaml.cs">
+      <DependentUpon>QueryRelatedRecords.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\Query\Statistics.xaml.cs">
+      <DependentUpon>Statistics.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\Query\QueryOnly.xaml.cs">
+      <DependentUpon>QueryOnly.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\Network\Routing.xaml.cs">
+      <DependentUpon>Routing.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <Content Include="Assets\AddGraphicsXAML.png" />
+    <Content Include="Assets\AddPointOnTap.png" />
+    <Content Include="Assets\AddressOfLocation.png" />
+    <Content Include="Assets\AttributeQuery.png" />
+    <Content Include="Assets\BatchGeocoding.png" />
+    <Content Include="Assets\CsvLayerSimple.png" />
+    <Content Include="Assets\DrivingDirections.png" />
+    <Content Include="Assets\DynamicLayersInCode.png" />
+    <Content Include="Assets\EnableTouchRotation.png" />
+    <Content Include="Assets\FindAnAddress.png" />
+    <Content Include="Assets\GraphicEvents.png" />
+    <Content Include="Assets\Identify.png" />
+    <Content Include="Assets\ImageServiceSimple.png" />
+    <Content Include="Assets\i_pushpin.png" />
+    <Content Include="Assets\BindMapProperties.png" />
+    <Content Include="Assets\DetailedFeatureLayers.png" />
+    <Content Include="Assets\DynamicLayer.png" />
+    <Content Include="Assets\LargeFeatureLayers.png" />
+    <Content Include="Assets\LayerList.png" />
+    <Content Include="Assets\LocationDisplay.png" />
+    <Content Include="Assets\OverviewMap.png" />
+    <Content Include="Assets\PenDrawing.png" />
+    <Content Include="Assets\QueryRelatedRecords.png" />
+    <Content Include="Assets\RasterFunctions.png" />
+    <Content Include="Assets\Routing.png" />
+    <Content Include="Assets\RoutingWithBarriers.png" />
+    <Content Include="Assets\ShadedReliefSlope.png" />
+    <Content Include="Assets\Stretch.png" />
+    <Content Include="Assets\SymbolSwatches.png" />
+    <Content Include="Assets\TiledDynamic.png" />
+    <Content Include="Assets\FeatureLayer.png" />
+    <Content Include="Assets\Mapping.png" />
+    <Content Include="Assets\TiledLayer.png" />
+    <Content Include="Assets\WideLogo.png" />
+    <Content Include="Assets\WMSLayer.png" />
+    <Content Include="Data\samples.db" />
+    <None Include="README.txt" />
+    <None Include="InteractiveSDK_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Logo.png" />
+    <Content Include="Assets\SmallLogo.png" />
+    <Content Include="Assets\SplashScreen.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\LightGray.png" />
+    <Content Include="Assets\MediumGray.png" />
+    <Content Include="Assets\DarkGray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Common\StandardStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GroupDetailPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ItemDetailPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Samples\DynamicLayer\DynamicLayersInCode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Samples\Graphics\AddGraphicsXAML.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Samples\Graphics\AddPointOnTap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Samples\Graphics\PenDrawing.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Samples\Graphics\GraphicEvents.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Samples\Graphics\RendereringInCode.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Samples\ImageServices\ImageServiceSimple.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Samples\ImageServices\RasterFunctions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Samples\ImageServices\ShadedReliefSlope.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Samples\ImageServices\Stretch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Samples\Locator\AddressOfLocation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Samples\Locator\BatchGeocoding.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Samples\Locator\FindAnAddress.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Samples\Maps\CsvLayerSimple.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Samples\Maps\LocationDisplay.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Samples\Maps\MapProperties.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Samples\Maps\LargeFeatureLayers.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Samples\Maps\OverviewMap.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Samples\Maps\WmsLayerSimple.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Samples\Maps\EnableTouchRotation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Samples\Maps\DynamicAndTile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Samples\Maps\DynamicMap.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Samples\Maps\FeatureLayers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Samples\Maps\TiledMap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Samples\Misc\LayerList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Samples\Misc\SimpleMapTip.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Samples\Misc\SymbolSwatches.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Samples\Network\DrivingDirections.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Samples\Network\RoutingWithBarriers.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Samples\Query\AttributeQuery.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Samples\Query\QueryWithBuffer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Samples\Query\Identify.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Samples\Query\QueryRelatedRecords.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Samples\Query\Statistics.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Samples\Query\QueryOnly.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Samples\Network\Routing.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="ESRI.ArcGIS.Runtime, Version=10.2.0">
+      <Name>ArcGIS Runtime for Windows Store apps %28Beta%29</Name>
+    </SDKReference>
+    <SDKReference Include="Microsoft.VCLibs, Version=11.0">
+      <Name>Microsoft Visual C++ Runtime Package</Name>
+    </SDKReference>
+    <SDKReference Include="SQLite.WinRT, Version=3.7.16">
+      <Name>SQLite for Windows Runtime %28SQLite.WinRT, Version=3.7.16%29</Name>
+    </SDKReference>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
+    <VisualStudioVersion>11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <PropertyGroup>
+    <SDKReferenceDirectoryRoot>$(ProjectDir)..\..\..\..\..\output\winrt_sdk\;$(SDKReferenceDirectoryRoot)</SDKReferenceDirectoryRoot>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>"$(ProjectDir)..\UpdateSampleDatabase\bin\$(ConfigurationName)\UpdateSampleDatabase.exe" "$(ProjectDir)Samples" "$(ProjectDir)Data\samples.db"</PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

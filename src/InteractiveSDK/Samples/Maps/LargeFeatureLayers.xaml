@@ -1,0 +1,16 @@
+﻿<Page
+    x:Class="InteractiveSDK.Samples.Maps.LargeFeatureLayers"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:esri="using:ESRI.ArcGIS.Runtime.Xaml">
+
+    <Grid>
+		<esri:Map x:Name="MyMap">
+			<esri:ArcGISTiledMapServiceLayer 
+                ServiceUri="http://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer" />
+            <esri:FeatureLayer ServiceUri="http://maps1.arcgisonline.com/ArcGIS/rest/services/USGS_Landslides/MapServer/1" 
+                               Mode="OnDemand" />              
+			
+		</esri:Map>
+	</Grid>
+</Page>

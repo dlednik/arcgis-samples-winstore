@@ -1,0 +1,69 @@
+﻿<Page
+    x:Class="InteractiveSDK.Samples.Misc.LayerList"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:InteractiveSDK.Samples.Misc"
+    xmlns:esri="using:ESRI.ArcGIS.Runtime.Xaml">
+    <Page.Resources>
+        <local:BooleanToVisibilityConverter x:Key="vizBoolConv" />
+    </Page.Resources>
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <esri:Map x:Name="MyMap" Grid.Column="1">
+            <esri:ArcGISTiledMapServiceLayer DisplayName="Basemap"
+				ServiceUri="http://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer" />
+
+            <esri:ArcGISDynamicMapServiceLayer DisplayName="Fire Potential" Opacity=".35"
+				ServiceUri="http://maps1.arcgisonline.com/ArcGIS/rest/services/RMRS_Wildland_Fire_Potential/MapServer" />
+
+            <esri:GroupLayer DisplayName="Fire GroupLayer">
+                <esri:FeatureLayer DisplayName="Fire Perimeter"  ServiceUri="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Fire/Sheep/FeatureServer/2" />
+                <esri:FeatureLayer Opacity=".75" DisplayName="Evacuation Perimeter" ServiceUri="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Fire/Sheep/FeatureServer/1" />
+                <esri:FeatureLayer DisplayName="Points of Interest" ServiceUri="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Fire/Sheep/FeatureServer/0" />
+            </esri:GroupLayer>
+        </esri:Map>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Drag layers to reorder them" Margin="20" FontWeight="Bold" />
+
+            <ListView ItemsSource="{Binding ElementName=MyMap, Path=Layers}" 
+				Margin="20,0,0,20"
+				Grid.Row="1"
+				CanReorderItems="True"
+				CanDragItems="True"
+				AllowDrop="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding DisplayName}" FontSize="18" />
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <StackPanel>
+                                    <ToggleSwitch IsOn="{Binding Visibility, Converter={StaticResource vizBoolConv}, Mode=TwoWay}" />
+                                    <Slider Value="{Binding Opacity, Mode=TwoWay}" StepFrequency="0.01" Minimum="0" Maximum="1" />
+                                </StackPanel>
+                                <Button Grid.Column="1" Click="RemoveLayerButton_Click" 
+										Style="{StaticResource DeleteAppBarButtonStyle}"
+										Margin="0,-30,-60,-30" VerticalAlignment="Center" />
+                            </Grid>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </Grid>
+    </Grid>
+</Page>

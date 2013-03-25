@@ -1,0 +1,32 @@
+﻿<Page x:Class="InteractiveSDK.Samples.Network.RoutingWithBarriers" 
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+      xmlns:esri="using:ESRI.ArcGIS.Runtime.Xaml" 
+      xmlns:sym="using:ESRI.ArcGIS.Runtime.Symbology">
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.Resources>
+            <sym:SimpleMarkerSymbol x:Key="StopSymbol" Size="20" Style="Circle" Color="Green" />
+            <sym:SimpleRenderer x:Key="StopRenderer" Symbol="{StaticResource StopSymbol}" />
+            <sym:SimpleMarkerSymbol x:Key="BarrierSymbol" Size="15" Style="Square" Color="Red" />
+            <sym:SimpleRenderer x:Key="BarrierRenderer" Symbol="{StaticResource BarrierSymbol}" />
+            <sym:SimpleLineSymbol x:Key="RouteSymbol" Color="#990000FF" Width="6" />
+            <sym:SimpleRenderer x:Key="RouteRenderer" Symbol="{StaticResource RouteSymbol}" />
+        </Grid.Resources>
+        <esri:Map x:Name="MyMap" Tapped="MyMap_Tapped">
+            <esri:ArcGISTiledMapServiceLayer ServiceUri="http://services.arcgisonline.com/ArcGIS/rest/services/ESRI_StreetMap_World_2D/MapServer" />
+            <esri:GraphicsLayer ID="MyRouteGraphicsLayer" Renderer="{StaticResource RouteRenderer}" />
+            <esri:GraphicsLayer ID="MyStopsGraphicsLayer" Renderer="{StaticResource StopRenderer}" />
+            <esri:GraphicsLayer ID="MyBarriersGraphicsLayer" Renderer="{StaticResource BarrierRenderer}" />
+        </esri:Map>
+        <Border Margin="20" HorizontalAlignment="Right" VerticalAlignment="Top" Background="#CC000000" Padding="20">
+            <Grid>
+                <Rectangle Fill="#77919191" Stroke="Gray" RadiusX="10" RadiusY="10" Margin="0" />
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <RadioButton Content="Add Stops" x:Name="StopsRadioButton" IsChecked="true" Foreground="White" GroupName="add" VerticalAlignment="Center" />
+                    <RadioButton Content="Add Barriers" x:Name="BarriersRadioButton" Foreground="White" GroupName="add" VerticalAlignment="Center" />
+                    <Button Content="Clear" Click="Button_Click" Margin="5,0,0,0" />
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

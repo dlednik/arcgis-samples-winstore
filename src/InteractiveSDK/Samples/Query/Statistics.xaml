@@ -1,0 +1,36 @@
+﻿<Page x:Class="InteractiveSDK.Samples.Query.Statistics"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:InteractiveSDK.Samples.Maps"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:esri="using:ESRI.ArcGIS.Runtime.Xaml"
+      mc:Ignorable="d">
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <GridView x:Name="ResultGrid"
+                  HorizontalContentAlignment="Stretch">
+            <GridView.HeaderTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="US Region" />
+                        <TextBlock Text="   |   " />
+                        <TextBlock Text="State Count" />
+                        <TextBlock Text="   |   " />
+                        <TextBlock Text="Population" />
+                    </StackPanel>
+                </DataTemplate>
+            </GridView.HeaderTemplate>
+            <GridView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Attributes[sub_region]}" />
+                        <TextBlock Text="   |   " />
+                        <TextBlock Text="{Binding  Attributes[numberofstates] }" />
+                        <TextBlock Text="   |   " />
+                        <TextBlock Text="{Binding  Attributes[subregionpopulation] }" />
+                    </StackPanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+    </Grid>
+</Page>

@@ -1,0 +1,40 @@
+﻿<Page
+    x:Class="InteractiveSDK.Samples.Maps.OverviewMap"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:esri="using:ESRI.ArcGIS.Runtime.Xaml"
+	xmlns:sym="using:ESRI.ArcGIS.Runtime.Symbology">
+    
+    <Grid>
+		<esri:Map x:Name="MyMap" ExtentChanged="MyMap_ExtentChanged">
+			<esri:ArcGISTiledMapServiceLayer
+				ServiceUri="http://services.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer" />
+		</esri:Map>
+		
+		<Border HorizontalAlignment="Right"
+				VerticalAlignment="Top"
+				Margin="20"
+				BorderBrush="White"
+				BorderThickness="2"
+                Background="LightGray"
+				IsHitTestVisible="False">
+			<esri:Map Width="200" Height="200" x:Name="overviewMap">
+				<esri:ArcGISTiledMapServiceLayer
+				ServiceUri="http://services.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer" />
+				<esri:GraphicsLayer>
+					<esri:GraphicsLayer.Renderer>
+						<sym:SimpleRenderer>
+							<sym:SimpleRenderer.Symbol>
+								<sym:SimpleFillSymbol>
+									<sym:SimpleFillSymbol.Outline>
+										<sym:SimpleLineSymbol Color="Red" Width="2" />
+									</sym:SimpleFillSymbol.Outline>
+								</sym:SimpleFillSymbol>
+							</sym:SimpleRenderer.Symbol>
+						</sym:SimpleRenderer>
+					</esri:GraphicsLayer.Renderer>
+				</esri:GraphicsLayer>
+			</esri:Map>
+		</Border>
+    </Grid>
+</Page>

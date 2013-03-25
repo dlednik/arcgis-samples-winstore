@@ -1,0 +1,45 @@
+﻿<Page x:Class="InteractiveSDK.Samples.Maps.MapProperties"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  	  xmlns:esri="using:ESRI.ArcGIS.Runtime.Xaml">
+    
+	<Page.Resources>
+		<esri:ProjectionConverter x:Key="project" />
+	</Page.Resources>
+    <Grid>
+		
+		<esri:Map x:Name="MyMap">
+			<esri:ArcGISTiledMapServiceLayer
+				ServiceUri="http://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer" />
+			<esri:ArcGISTiledMapServiceLayer
+				ServiceUri="http://services.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer" />
+		</esri:Map>
+		
+		<Border IsHitTestVisible="False"
+				Margin="20"
+				HorizontalAlignment="Left"
+				VerticalAlignment="Top"
+				Background="#CC000000"
+				Padding="20" MaxWidth="300">
+			<StackPanel>
+				<TextBlock Text="Scale:" FontWeight="Bold" />
+				<StackPanel Orientation="Horizontal">
+					<TextBlock Text="1:" />
+					<TextBlock Text="{Binding Scale, ElementName=MyMap}" />
+				</StackPanel>
+				<TextBlock Text="Extent:" FontWeight="Bold" />
+				<StackPanel DataContext="{Binding Extent, ElementName=MyMap, Converter={StaticResource project}, ConverterParameter=4326}">
+					<TextBlock Text="{Binding XMin}" />
+					<TextBlock Text="{Binding YMin}" />
+					<TextBlock Text="{Binding XMax}" />
+					<TextBlock Text="{Binding YMax}" />
+				</StackPanel>
+				
+				<TextBlock Text="Spatial Reference:" FontWeight="Bold"  />
+				<TextBlock Text="{Binding SpatialReference.Wkid, ElementName=MyMap}" />
+				<TextBlock Text="{Binding SpatialReference.Wkt, ElementName=MyMap}" TextWrapping="Wrap" />
+
+			</StackPanel>
+		</Border>
+    </Grid>
+</Page>
